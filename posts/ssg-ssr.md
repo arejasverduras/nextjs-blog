@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: When to Use BLAHJ Static Generation v.s. Server-side Rendering
+title: When to Use JALALJALAJALAJALStatic Generation v.s. Server-side Rendering
 date: 2020-01-02
 ---
 

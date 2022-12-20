@@ -10,8 +10,8 @@ module.exports = {
         return cfg;
     },
     generateBuildId: () =>'build-id',
-    images: {
-        loader: 'custom',
-        loaderFile: './my/image/loader.js',
-      },
+    // images: {
+    //     loader: 'custom',
+    //     loaderFile: './my/image/loader.js',
+    //   },
 }

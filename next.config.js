@@ -9,5 +9,9 @@ module.exports = {
         )
         return cfg;
     },
-    generateBuildId: () =>'build-id'
+    generateBuildId: () =>'build-id',
+    images: {
+        loader: 'custom',
+        loaderFile: './my/image/loader.js',
+      },
 }

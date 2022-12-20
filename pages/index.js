@@ -9,7 +9,7 @@ export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData,
+      allPostsData: JSON.parse(JSON.stringify(allPostsData))
     },
   };
 }

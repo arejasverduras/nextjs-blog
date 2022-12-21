@@ -9,7 +9,7 @@ import HeaderMenu from './headerMenu';
 const name = 'Michiel';
 export const siteTitle = 'Silvester Zwemschool';
 
-export default function Layout({ children, home, allPagesData }) {
+export default function Layout({ children, home, allPagesData, posts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -28,7 +28,7 @@ export default function Layout({ children, home, allPagesData }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <HeaderMenu allPagesData={allPagesData} styles={styles}/>
+        <HeaderMenu allPagesData={allPagesData} posts={posts} styles={styles}/>
         {home ? (
           <>
             <Image

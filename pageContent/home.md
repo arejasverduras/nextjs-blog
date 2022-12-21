@@ -1,5 +1,4 @@
 ---
 title: MipBlog
 ---
-
-This is the real deal yo
+This is the real deal yomama

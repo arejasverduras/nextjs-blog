@@ -14,3 +14,13 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
+`- name: 'page'
+    label: "Page"
+    folder: "pageContent"
+    create: true
+    slug: "{{slug}}"
+    fields: 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "subTitle", name: "subTitle", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}

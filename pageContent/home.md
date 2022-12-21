@@ -1,5 +1,5 @@
 ---
 layout: index
-title: MipBlog
+title: MipBlogrr
 ---
 This is the real deal yomama

@@ -4,43 +4,50 @@ import utilStyles from '../styles/utils.module.css';
 import Date from '../components/date';
 import Link from 'next/link';
 import { getSortedPostsData } from '../lib/posts';
-import { getSortedPageData } from '../lib/page';
+import { getPageData, getSortedPageData } from '../lib/page';
+
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   const allPagesData = getSortedPageData();
+  const homepageData = await getPageData('home');
+
   return {
     props: {
       allPostsData: JSON.parse(JSON.stringify(allPostsData)),
-      allPagesData: JSON.parse(JSON.stringify(allPagesData))
+      allPagesData: JSON.parse(JSON.stringify(allPagesData)),
+      homepageData: JSON.parse(JSON.stringify(homepageData))
     },
   };
 }
 
 
-export default function Home({allPostsData, allPagesData}) {
+export default function Home({allPostsData, allPagesData, homepageData}) {
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <h1>MiBlog</h1>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <h1>{homepageData.title}</h1>
+        <p dangerouslySetInnerHTML={{ __html: homepageData.contentHtml }}>
+          
+          </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Pages</h2>
         <ul className={utilStyles.list}>
-          {allPagesData.map(({ pageId, date, title }) => (
-            <li className={utilStyles.listItem} key={pageId}>
+          {allPagesData.map(({ pageId, date, title }) => {
+            if (pageId === 'home') return;
+            return (
+             <li className={utilStyles.listItem} key={pageId}>
                 <Link href={`/${pageId}`}>{title}</Link>
-                <br />
+              <br />
 
-              </li>
-          ))}
+            </li>)
+            }
+          )}
         </ul>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>

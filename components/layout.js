@@ -28,7 +28,7 @@ export default function Layout({ children, home, allPagesData, posts }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <HeaderMenu allPagesData={allPagesData} posts={posts} styles={styles}/>
+        <HeaderMenu posts={posts} allPagesData={allPagesData} styles={styles}/>
         {home ? (
           <>
             <Image

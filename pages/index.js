@@ -9,7 +9,7 @@ import HeaderMenu from '../components/headerMenu';
 
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
   const allPagesData = getSortedPageData();
   const homepageData = await getPageData('home');
 

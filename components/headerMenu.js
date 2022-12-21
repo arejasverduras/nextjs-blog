@@ -2,9 +2,16 @@ import Link from 'next/link';
 import styles from './headerMenu.module.css';
 
 export default function HeaderMenu ({allPagesData, posts}){
-    console.log(posts);
+
+    const postsList = posts !== undefined? posts.map(({id, title}) => 
+    <li key={id}>
+        <Link href={`/posts/${id}`}>{title}</Link>
+    </li>
+    ): null
+
     return (
         <div className={styles.HeaderMenu}>
+            <p>Pages</p>
             <ul>
                 {allPagesData.map(({pageId, title}) => 
                     <li key={pageId}>
@@ -12,13 +19,13 @@ export default function HeaderMenu ({allPagesData, posts}){
                     </li>
                 )}
             </ul>
+            <br />
+            <p>Posts</p>
+            
             <ul>
-                {posts.map(({id, title}) => 
-                    <li key={id}>
-                        <Link href={`/posts/${id}`} >{title}</Link>
-                    </li>
-                )}
+                {postsList}
             </ul>
         </div>
+
     )
 };

@@ -5,6 +5,7 @@ import Date from '../components/date';
 import Link from 'next/link';
 import { getSortedPostsData } from '../lib/posts';
 import { getPageData, getSortedPageData } from '../lib/page';
+import HeaderMenu from '../components/headerMenu';
 
 
 export async function getStaticProps() {
@@ -25,7 +26,7 @@ export async function getStaticProps() {
 export default function Home({allPostsData, allPagesData, homepageData}) {
 
   return (
-    <Layout home>
+    <Layout home allPagesData={allPagesData}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -37,21 +38,12 @@ export default function Home({allPostsData, allPagesData, homepageData}) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Pages</h2>
-        <ul className={utilStyles.list}>
-          {allPagesData.map(({ pageId, date, title }) => {
-            if (pageId === 'home') return;
-            return (
-             <li className={utilStyles.listItem} key={pageId}>
-                <Link href={`/${pageId}`}>{title}</Link>
-              <br />
+        <HeaderMenu allPagesData={allPagesData} />
 
-            </li>)
-            }
-          )}
-        </ul>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
+
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>

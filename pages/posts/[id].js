@@ -1,6 +1,7 @@
 import Layout from '../../components/layout';
 import Head from 'next/head';
 import { getAllPostIds, getPostData } from '../../lib/posts';
+import { getSortedPageData } from '../../lib/page';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
@@ -14,16 +15,18 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
+  const allPagesData = getSortedPageData();
   return {
     props: {
-      postData: JSON.parse(JSON.stringify(postData))
+      postData: JSON.parse(JSON.stringify(postData)),
+      allPagesData: JSON.parse(JSON.stringify(allPagesData))
     },
   };
 }
 
-export default function Post({ postData }) {
+export default function Post({ postData, allPagesData }) {
     return (
-      <Layout>
+      <Layout allPagesData={allPagesData}>
         <Head>
           <title>{postData.title}</title>
         </Head>

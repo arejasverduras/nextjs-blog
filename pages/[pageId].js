@@ -1,10 +1,7 @@
 import Head from 'next/head';
 import Layout from '../components/layout';
-// write similar functions to getAllPageIds, getPageData
 import utilStyles from '../styles/utils.module.css';
 import { getAllPageIds, getPageData } from '../lib/page';
-
-// import { getAllPostIds, getPostData } from '../../lib/posts';
 
 export async function getStaticPaths() {
     const paths = getAllPageIds();

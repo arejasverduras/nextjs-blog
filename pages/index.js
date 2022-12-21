@@ -4,18 +4,21 @@ import utilStyles from '../styles/utils.module.css';
 import Date from '../components/date';
 import Link from 'next/link';
 import { getSortedPostsData } from '../lib/posts';
+import { getSortedPageData } from '../lib/page';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+  const allPagesData = getSortedPageData();
   return {
     props: {
-      allPostsData: JSON.parse(JSON.stringify(allPostsData))
+      allPostsData: JSON.parse(JSON.stringify(allPostsData)),
+      allPagesData: JSON.parse(JSON.stringify(allPagesData))
     },
   };
 }
 
 
-export default function Home({allPostsData}) {
+export default function Home({allPostsData, allPagesData}) {
   return (
     <Layout home>
       <Head>
@@ -27,6 +30,18 @@ export default function Home({allPostsData}) {
           (This is a sample website - you’ll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
+      </section>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Pages</h2>
+        <ul className={utilStyles.list}>
+          {allPagesData.map(({ pageId, date, title }) => (
+            <li className={utilStyles.listItem} key={pageId}>
+                <Link href={`/${pageId}`}>{title}</Link>
+                <br />
+
+              </li>
+          ))}
+        </ul>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>

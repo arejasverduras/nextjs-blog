@@ -24,3 +24,11 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "subTitle", name: "subTitle", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: 'homepage'
+    label: "Homepage"
+    folder: "pageContent"
+    slug: "home"
+    fields: 
+      - {label: "Layout", name: "layout", widget: "hidden", default: "index"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}

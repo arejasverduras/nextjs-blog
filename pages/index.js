@@ -31,9 +31,9 @@ export default function Home({allPostsData, allPagesData, homepageData}) {
       </Head>
       <section className={utilStyles.headingMd}>
         <h1>{homepageData.title}</h1>
-        <p dangerouslySetInnerHTML={{ __html: homepageData.contentHtml }}>
+        <div dangerouslySetInnerHTML={{ __html: homepageData.contentHtml }}>
           
-          </p>
+          </div>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Pages</h2>

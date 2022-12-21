@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
+import HeaderMenu from './headerMenu';
+
 
 const name = 'Michiel';
-export const siteTitle = 'NextJS + Netlify CMS test app';
+export const siteTitle = 'Silvester Zwemschool';
 
 export default function Layout({ children, home }) {
   return (
@@ -14,7 +16,7 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js & Netlify CMS"
+          content="Een leven vol zwemplezier! Zwemles bij Silvester Zwemschool"
         />
         <meta
           property="og:image"
